@@ -1,0 +1,116 @@
+@media (max-width : 1024px) {
+
+    #hero-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #hero-footer a:nth-child(2) {
+        margin-left: 0;
+    }
+
+    #works {
+        height: auto;
+    }
+
+    .elem {
+        max-width: 100vw;
+    }
+
+    #about {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .about-me {
+        align-items: center;
+        padding-right: 0;
+        flex-direction: column;
+    }
+
+    .about-right {
+        width: 463px;
+        margin-left: 0;
+    }
+
+    #footer {
+        gap: 40px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width:505px) {
+
+    #circle{
+        display: none;
+    }
+
+    #nav{
+        padding: 2rem 1rem;
+    }
+
+    #heading {
+        padding-left: 1.5rem;
+    }
+
+    #heading h1 {
+        font-size: 3.5rem;
+        line-height: 4rem;
+    }
+
+    #heading .sub-heading {
+        padding-left: 55%;
+        padding-top: 10px;
+        font-size: 0.8rem;
+    }
+
+    #hero-footer {
+        padding: 1rem 1rem;
+        gap: 10px;
+    }
+
+    #hero-footer a {
+        font-size: 0.875rem;
+    }
+
+    .about-me {
+        align-items: center;
+        padding-right: 0;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about-left {
+        width: 200px;
+        margin-right: 0;
+    }
+
+    .about-right {
+        width: auto;
+        padding: 0 1rem;
+    }
+
+    #subscribe {
+       padding-left: 1.5rem;
+    }
+
+    .footer-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+}
+
+@media (max-width : 400px) {
+    #small-heading {
+        padding: 2rem 3.2rem;
+        padding-top: 4rem;
+        text-align: right;
+    }
+}
