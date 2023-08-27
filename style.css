@@ -328,3 +328,12 @@ body{
     font-size: .875rem;
     line-height: 1.25rem;
 }
+
+/* ================== Cursor Classes ================== */
+.color-grey{
+    color: #747474;
+}
+
+.color-black{
+    color: black;
+}

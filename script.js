@@ -1,7 +1,35 @@
-const locoScroll = new LocomotiveScroll({
-  el: document.querySelector("#main"),
-  smooth: true
-});
+function locomotive() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true,
+  });
+
+  locoScroll.on("scroll", ScrollTrigger.update);
+  ScrollTrigger.scrollerProxy("#main", {
+    scrollTop(value) {
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
+    },
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight,
+      };
+    },
+
+    pinType: document.querySelector("#main").style.transform
+      ? "transform"
+      : "fixed",
+  });
+
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  ScrollTrigger.refresh();
+}
 
 let timeout;
 
@@ -140,12 +168,76 @@ setInterval(() => {
 const scrollDown = document.querySelectorAll(".scrollDown");
 
 scrollDown.forEach((button) => {
-  button.addEventListener("click", () => {
-    
-  })
-})
+  button.addEventListener("click", () => {});
+});
 
-circleSkew();
+locomotive();
+// circleSkew();
 firstPageAnim();
 ImageSection();
+
+let mm = gsap.matchMedia();
+
+mm.add("(min-width: 1280px)", () => {
+
+gsap.to("#works", {
+  y: -150,
+  opacity: 1,
+  duration: 2,
+  ease: "expo.out",
+  scrollTrigger: {
+    scroller: "#main",
+    trigger: "#works",
+    start: "top 100%",
+    end: "top 70%",
+  },
+});
+
+gsap.to("#about", {
+  y : -100,
+  opacity: 1,
+  duration: 2,
+  ease: "expo.out",
+  scrollTrigger: {
+    scroller: "#main",
+    trigger: "#about",
+    start: "top 90%",
+    end: "top 70%",
+  },
+})
+
+gsap.to("#subscribe", {
+  y : -100,
+  opacity: 1,
+  duration: 2,
+  ease: "expo.out",
+  scrollTrigger: {
+    scroller: "#main",
+    trigger: "#subscribe",
+    start: "top 90%",
+    end: "top 70%",
+  },
+})
+
+})
+
+const cursor = new MouseFollower({
+  container: document.body,
+  speed: 0.6,
+  skewing : 1
+});
+
+const el = document.querySelectorAll('.elem');
+
+el.forEach((elem) => {
+  elem.addEventListener('mouseenter', () => {
+    cursor.setText('View more');
+    cursor.addState('color-black')
+});
+
+elem.addEventListener('mouseleave', () => {
+    cursor.removeText();
+    cursor.removeState('color-black')
+});
+})
 
