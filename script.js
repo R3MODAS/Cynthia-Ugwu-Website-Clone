@@ -165,14 +165,9 @@ setInterval(() => {
   document.querySelector("#date").innerHTML = date + " EST";
 }, 1000);
 
-const scrollDown = document.querySelectorAll(".scrollDown");
-
-scrollDown.forEach((button) => {
-  button.addEventListener("click", () => {});
-});
 
 locomotive();
-// circleSkew();
+circleSkew();
 firstPageAnim();
 ImageSection();
 
@@ -221,23 +216,4 @@ gsap.to("#subscribe", {
 
 })
 
-const cursor = new MouseFollower({
-  container: document.body,
-  speed: 0.6,
-  skewing : 1
-});
-
-const el = document.querySelectorAll('.elem');
-
-el.forEach((elem) => {
-  elem.addEventListener('mouseenter', () => {
-    cursor.setText('View more');
-    cursor.addState('color-black')
-});
-
-elem.addEventListener('mouseleave', () => {
-    cursor.removeText();
-    cursor.removeState('color-black')
-});
-})
 
